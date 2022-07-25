@@ -17,3 +17,8 @@
 
 6. Preview the system's swap files::
     - `sudo swapon --show`
+
+7. To make it persistent across reboots:
+    - Append the following line in your fstab:
+        - `sudo vim /etc/fstab`
+        - /<location>/12G-swapfile none swap sw 0 0
