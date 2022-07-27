@@ -3,7 +3,7 @@
 Ref guide at: [stackoverflow][1]
 
 1. For current user add in your `~/.profile` or `~/.bashrc`:
-    - `exporti PATH="$PATH:/path/to/dir"`
+    - `export PATH="$PATH:/path/to/dir"`
 
 2. (opt) To make it persistent across all users (system wide):
     - `sudo vim /etc/environment`
