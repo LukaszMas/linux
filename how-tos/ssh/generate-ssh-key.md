@@ -20,6 +20,8 @@ Ref guide at: [github docs][1]
 
 4. Additional resources:
     - [ssh.com][2]
+    - [pnp.physics][3]
 
 [1]: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent> "github docs"
 [2]: <https://www.ssh.com/academy/ssh/keygen> "ssh.com"
+[3]: <http://www-pnp.physics.ox.ac.uk/~gronbech/computing_course/node242.html#:~:text=eval%20%60ssh%2Dagent%20%2Ds%60%20(or%20%2Dc,eval%20command%20that%20executes%20them.> "pnp.physics"
