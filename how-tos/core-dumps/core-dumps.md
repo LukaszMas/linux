@@ -40,6 +40,12 @@ Ref3: [askubuntu20][3]
 
 5. You can run your executable directly with gdb:
     - `gdb <path/to/exe>`
+    -  Pass executable with arguments:
+        - `gdb --args <path/to/exe> <exe_arguments>`
+    - Set `catch` points for catching ex. on `throw` or `catch`, then run will
+      stop on the first `catch`
+        - `catch throw`
+        - `catch catch`
     - Run it with the r command:
         - `r`
     - View the bactrace (call stack)
