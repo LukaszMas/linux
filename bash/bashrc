@@ -116,7 +116,38 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# virtualenv and virtualenvwrapper
-export WORKON_HOME=/home/lukasz/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
+# --- command prompt config ----------------------------------------------------
+
+function __my_prompt_command {
+    local red="\001\033[0;31m\002"
+    local yellow="\001\033[0;33m\002"
+    local green="\001\033[0;32m\002"
+    local off="\001\033[0m\002"
+
+    local branch="$(__git_ps1 "%s")"
+    local status="$(git status 2>/dev/null)"
+    local msg=""
+    if [[ $status =~ "to be committed:" ]]; then
+        msg+="${green}c/$off"
+    fi
+    if [[ $status =~ "not staged for commit:" ]]; then
+        msg+="${red}ns/$off"
+    fi
+    if [[ $status =~ "Untracked" || $status =~ "untracked" ]]; then
+        msg+="${red}u/$off"
+    fi
+    if [ ! -z "${msg}" ]; then
+        msg=" $msg"
+    fi
+
+    if [[ $branch == 'master' || $branch == 'main' ]]; then
+        # to remove space use ex: $(__git_ps1 "(%s)")
+        echo -e "$red$(__git_ps1 " (%s$msg$red)")$off"
+    else
+        echo -e "$yellow$(__git_ps1 " (%s$msg$yellow)")$off"
+    fi
+}
+
+# Additional timestamp
+#PS1='\001\033[0;36m\002<$(date +%H:%M:%S)>\001\033[0m\002 ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__my_prompt_command)\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__my_prompt_command)\$ '
