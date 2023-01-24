@@ -2,7 +2,7 @@
 
 Ref guide at: [thegeekdiary][1]
 
-1. To restore a sub directory inder home dir:
+1. To restore a sub directory/files inside your home dir:
     - `sudo cp -r /etc/skel/<dir>/ ~/`
 
 2. Restore whole home directory:
